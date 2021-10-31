@@ -1,4 +1,5 @@
 const formEl = document.querySelector('.feedback-form');
+import throttle from 'lodash.throttle';
 
 const LOCALSTORAGE_KEY = 'feedback-form-state'
 
@@ -6,7 +7,7 @@ const LOCALSTORAGE_KEY = 'feedback-form-state'
 populateTextArea();
 
 formEl.addEventListener('submit', onFormSubmit)
-formEl.addEventListener('input', savedDataInput)
+formEl.addEventListener('input', throttle(savedDataInput, 1000))
 
 
 function onFormSubmit(event) {

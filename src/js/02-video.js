@@ -7,11 +7,14 @@ const iframe = document.querySelector('iframe')
 const player = new Player(iframe);
 
 
+
 const onVideoPlay = () => {
     if(localStorage.getItem(PLAYER_TIME_ON_EXIT)) {
         player.setCurrentTime(localStorage.getItem(PLAYER_TIME_ON_EXIT));
     }
 }
+
+onVideoPlay()
 
 const getCurrentTime = (data) => {
     console.log(data.seconds)
